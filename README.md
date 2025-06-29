@@ -37,6 +37,30 @@ Akademik Panel; aşağıdaki temel işlemleri dijital ortama taşıyarak verimli
 
 ## 📂 Proje Mimarisi
 
+## 🗄️ Veritabanı Varlık İlişkileri (Entity Relationships)
+
+Veritabanı tasarımı, akademik yapının temel taşlarını modelleyecek şekilde kurgulanmıştır. Varlıklar arasındaki ilişkiler aşağıda şematize edilmiş ve detaylarıyla açıklanmıştır.
+
+### 🔍 Varlık İlişkileri Açıklamaları
+
+#### 🏛️ Department → Course / Room  
+Bir `Department` (Bölüm), birden fazla `Course` (Ders) ve birden fazla `Room` (Derslik) içerebilir.  
+Bu ilişkiler **bire-çok (one-to-many)** yapıda tanımlanmıştır.
+
+#### 👨‍🏫 Users → Course  
+Bir `User` (Öğretim Elemanı veya Kullanıcı), birden fazla `Course` (Ders) verebilir.  
+Bu da yine **bire-çok (one-to-many)** bir ilişkidir.
+
+#### 🕒 Schedule (Merkez Varlık)  
+`Schedule` (Program) tablosu, sistemin merkezinde yer alır ve şu bilgileri içerir:
+
+- Hangi `Course` (ders),
+- Hangi `Room` (derslik),
+- Hangi gün ve saat aralığında gerçekleştirilecek.
+
+##### Bu ilişkiler:
+- Bir `Room`, birden fazla `Schedule` kaydında yer alabilir (örneğin farklı saatlerde farklı dersler için kullanılabilir).
+
 ### 🛠️ Backend
 
 Proje, N-Tier (Çok Katmanlı) Mimari yaklaşımı ile geliştirilmiştir:
